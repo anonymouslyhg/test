@@ -34,7 +34,7 @@ salaries = {
 
 # Convert dict to DataFrame with 2 columns: Employee and Salary
 df = pd.DataFrame(list(salaries.items()), columns=["Index", "Salary"])
-
+st.subheader(df)
 
 # Compute correlation (only works on numeric columns)
 fig, ax = plt.subplots()
