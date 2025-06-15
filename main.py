@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 
-df = pd.DataFrame({A : [1,2], B : [3,4]})
+df = pd.DataFrame({"A" : [1,2], "B" : [3,4]})
 st.subheader(df)
 st.DataFrame(df)
 st.Table(df)
