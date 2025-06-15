@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 
-df = pd.DataFrame({
+dict = {
   "Employee1": 55000,
   "Employee2": 62000,
   "Employee3": 48000,
@@ -27,8 +27,7 @@ df = pd.DataFrame({
   "Employee23": 59000,
   "Employee24": 60000,
 }
-)
-
+df = pd.DataFrame(list(dict.items()), columns=["Employees", "Salary"])
 st.line_chart(df)
 st.area_chart(df)
 st.bar_chart(df)
