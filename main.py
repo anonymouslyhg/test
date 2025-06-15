@@ -33,11 +33,8 @@ salaries = {
 }
 
 # Convert dict to DataFrame with 2 columns: Employee and Salary
-df = pd.DataFrame(list(salaries.items()), columns=["Employee", "Salary"])
+df = pd.DataFrame(list(salaries.items()), columns=["Index", "Salary"])
 
-# You need a correlation matrix with at least 2 numeric columns
-# So we add a dummy numeric column to show heatmap purpose
-df["Index"] = range(len(df))
 
 # Compute correlation (only works on numeric columns)
 fig, ax = plt.subplots()
