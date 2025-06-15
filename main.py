@@ -32,5 +32,5 @@ dict = {
 }
 
 fig, ax = plt.subplots()
-sb.heatmap(df.corr(), ax=ax)
+sns.heatmap(df.corr(), ax=ax)
 st.pyplot(fig)
