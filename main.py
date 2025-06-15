@@ -7,3 +7,4 @@ import plotly.express as px
 fig = px.scatter(df, x="A", y="B", color="C")
 st.plotly_chart(fig)
 
+st.write("good")
