@@ -3,8 +3,8 @@ import pandas as pd
 
 df = pd.DataFrame({"A" : [1,2], "B" : [3,4]})
 st.subheader(df)
-st.DataFrame(df)
-st.Table(df)
+st.dataframe(df)
+st.table(df)
 st.json(df)
 #st.header("header")
 #st.subheader("subheader")
