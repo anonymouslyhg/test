@@ -32,11 +32,8 @@ salaries = {
     "Employee24": 60000
 }
 
-# Convert dict to DataFrame with 2 columns: Employee and Salary
-df = pd.DataFrame(list(salaries.items()), columns=["Index", "Salary"])
-st.subheader(df)
-
-# Compute correlation (only works on numeric columns)
-fig, ax = plt.subplots()
-sns.heatmap(df[["Salary", "Index"]].corr(), annot=True, cmap="coolwarm", ax=ax)
-st.pyplot(fig)
+name = st.text_input("Enter Name: ")
+num = st.number_input("Age: ", min_value=0, max_value=11)
+box = st.checkbox("I agree ")
+color = st.selectbox("Choose color ", ["Red","Green","Blue"])
+button = st.button("Submit")
