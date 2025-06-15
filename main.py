@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
+import seaborn as sb
+import plotly.express as px
 
 dict = {
   "Employee1": 55000,
@@ -28,8 +30,4 @@ dict = {
   "Employee23": 59000,
   "Employee24": 60000
 }
-df = pd.DataFrame(list(dict.items()), columns=["Employees", "Salary"])
-st.line_chart(df)
-st.area_chart(df)
-st.bar_chart(df)
-st.scatter_chart(df)
+
