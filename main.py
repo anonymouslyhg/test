@@ -1,49 +1,76 @@
 import streamlit as st
-import pandas as pd
-import matplotlib.pyplot as plt
 import seaborn as sns
-import plotly.express as px
+import matplotlib.pyplot as plt
+import pandas as pd
 
+# Load dataset
+df = sns.load_dataset("tips")
+sns.set_style("whitegrid")
 
-salaries = {
-    "Employee1": 55000,
-    "Employee2": 62000,
-    "Employee3": 48000,
-    "Employee4": 71000,
-    "Employee5": 53000,
-    "Employee6": 59000,
-    "Employee7": 60000,
-    "Employee8": 64000,
-    "Employee9": 58000,
-    "Employee10": 50000,
-    "Employee11": 66000,
-    "Employee12": 54000,
-    "Employee13": 62000,
-    "Employee14": 57000,
-    "Employee15": 69000,
-    "Employee16": 55000,
-    "Employee17": 63000,
-    "Employee18": 56000,
-    "Employee19": 61000,
-    "Employee20": 52000,
-    "Employee21": 67000,
-    "Employee22": 58000,
-    "Employee23": 59000,
-    "Employee24": 60000
-}
+st.set_page_config(page_title="Seaborn Charts Demo", layout="wide")
+st.title("📊 Seaborn Charts in Streamlit")
 
-df = pd.DataFrame(list(salaries.items()), columns=["Employee", "Salary"])
+chart_type = st.selectbox("Choose a chart to display:", [
+    "Scatterplot",
+    "Barplot",
+    "Lineplot",
+    "Boxplot",
+    "Violinplot",
+    "Histogram + KDE",
+    "Countplot",
+    "Heatmap (Correlation)",
+    "Pairplot",
+    "LM Plot (Regression)"
+])
 
-fig = px.area(
-    df,
-    x = "Employee",
-    y = "Salary",
-    color_discrete_sequence = ["#FF6347"],
-    title = "Animated Graph",
-    labels = {"Salary": "Monthly Salary (PKR)"}
-)
+st.write("Dataset Preview:")
+st.dataframe(df)
 
-fig.update_traces(hovertemplate='Employee %{x}<br> Salary %{y} PKR')
-fig.update_layout(transition_duration=500)
+fig = plt.figure(figsize=(7, 4))
 
-st.plotly_chart(fig)
+# Plot based on selection
+if chart_type == "Scatterplot":
+    sns.scatterplot(x="total_bill", y="tip", data=df)
+    st.pyplot(fig)
+
+elif chart_type == "Barplot":
+    sns.barplot(x="day", y="total_bill", data=df)
+    st.pyplot(fig)
+
+elif chart_type == "Lineplot":
+    sns.lineplot(x="size", y="total_bill", data=df)
+    st.pyplot(fig)
+
+elif chart_type == "Boxplot":
+    sns.boxplot(x="day", y="total_bill", data=df)
+    st.pyplot(fig)
+
+elif chart_type == "Violinplot":
+    sns.violinplot(x="day", y="total_bill", data=df)
+    st.pyplot(fig)
+
+elif chart_type == "Histogram + KDE":
+    sns.histplot(df["total_bill"], bins=10, kde=True)
+    st.pyplot(fig)
+
+elif chart_type == "Countplot":
+    sns.countplot(x="day", data=df)
+    st.pyplot(fig)
+
+elif chart_type == "Heatmap (Correlation)":
+    fig = plt.figure(figsize=(8, 6))
+    corr = df.corr(numeric_only=True)
+    sns.heatmap(corr, annot=True, cmap="coolwarm")
+    st.pyplot(fig)
+
+elif chart_type == "Pairplot":
+    st.write("This will open multiple plots...")
+    pair_fig = sns.pairplot(df[["total_bill", "tip", "size"]])
+    st.pyplot(pair_fig)
+
+elif chart_type == "LM Plot (Regression)":
+    lm_fig = sns.lmplot(x="total_bill", y="tip", data=df)
+    st.pyplot(lm_fig)
+
+st.markdown("---")
+st.info("Made with ❤️ using Streamlit and Seaborn")
