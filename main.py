@@ -33,4 +33,5 @@ salaries = {
 }
 
 df = pd.DataFrame(list(salaries.items()), columns=["Employee", "Salary"])
+df.set_index("Employee", inplace=True)
 st.area_chart(df)
