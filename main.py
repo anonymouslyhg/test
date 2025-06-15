@@ -4,4 +4,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.express as px
 
-st.sidebar.write("Hero")
+fig = px.scatter(df, x="A", y="B", color="C")
+st.plotly_chart(fig)
+
