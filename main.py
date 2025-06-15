@@ -25,7 +25,7 @@ dict = {
   "Employee21": 67000,
   "Employee22": 58000,
   "Employee23": 59000,
-  "Employee24": 60000,
+  "Employee24": 60000
 }
 df = pd.DataFrame(list(dict.items()), columns=["Employees", "Salary"])
 st.line_chart(df)
