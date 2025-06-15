@@ -31,3 +31,6 @@ dict = {
   "Employee24": 60000
 }
 
+fig, ax = plt.subplots()
+sb.heatmap(df.corr(), ax=ax)
+st.pyplot(fig)
