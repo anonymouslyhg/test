@@ -33,5 +33,17 @@ salaries = {
 }
 
 df = pd.DataFrame(list(salaries.items()), columns=["Employee", "Salary"])
-df.set_index("Employee", inplace=True)
-st.area_chart(df)
+
+fig = px.area(
+    df,
+    x = "Employee",
+    y = "Salary",
+    color_discrete_sequence = ["#FF6347"],
+    title = "Animated Graph",
+    labels = {"Salary": "Monthly Salary (PKR)"}
+)
+
+fig.update_traces(hovertemplate='Employee %{x}<br> Salary %{y} PKR')
+fig.update_layout(transition_duration=500)
+
+st.plotly_chart(fig)
