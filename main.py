@@ -4,6 +4,36 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.express as px
 
+
+salaries = {
+    "Employee1": 55000,
+    "Employee2": 62000,
+    "Employee3": 48000,
+    "Employee4": 71000,
+    "Employee5": 53000,
+    "Employee6": 59000,
+    "Employee7": 60000,
+    "Employee8": 64000,
+    "Employee9": 58000,
+    "Employee10": 50000,
+    "Employee11": 66000,
+    "Employee12": 54000,
+    "Employee13": 62000,
+    "Employee14": 57000,
+    "Employee15": 69000,
+    "Employee16": 55000,
+    "Employee17": 63000,
+    "Employee18": 56000,
+    "Employee19": 61000,
+    "Employee20": 52000,
+    "Employee21": 67000,
+    "Employee22": 58000,
+    "Employee23": 59000,
+    "Employee24": 60000
+}
+
+df = pd.DataFrame(list(salaries.items()), columns=["Employee", "Salary"])
+
 fig = px.scatter(df, x="A", y="B", color="C")
 st.plotly_chart(fig)
 
