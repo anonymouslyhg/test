@@ -4,9 +4,13 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.express as px
 
+st.sidebar.title("Gamer")
+st.sidebar.radio("Option",["A","B","C"])
+col1, col2 = st.columns(2)
 
-name = st.text_input("Enter Name: ")
-num = st.number_input("Age: ", min_value=0, max_value=11)
-box = st.checkbox("I agree ")
-color = st.selectbox("Choose color ", ["Red","Green","Blue"])
-button = st.button("Submit")
+with col1:
+  st.write("Left Columns")
+with col2:
+  st.write("Right Colimns")
+
+st.expander("See More").write("Hided Content")
