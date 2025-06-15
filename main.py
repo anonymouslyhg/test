@@ -33,6 +33,4 @@ salaries = {
 }
 
 df = pd.DataFrame(list(salaries.items()), columns=["Employee", "Salary"])
-fig = px.scatter(df, x="Employee", y="Salary", color="Salary")
-st.plotly_chart(fig)
-st.write("good")
+pd.area_chart(df)
