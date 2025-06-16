@@ -8,7 +8,7 @@ df = sns.load_dataset("tips")
 st.set_page_config(page_title="Seaborn Graphs", layout="wide")
 st.title("Seaborn Demo")
 
-fig = plt.figure(figsize=(4, 1))
+fig = plt.figure(figsize=(2, 1))
 sns.kdeplot(df["total_bill"])
 st.pyplot(fig)
 
