@@ -15,6 +15,6 @@ if uploaded_file is not None:
     file = pd.read_excel(uploaded_file, sheet_name='1', engine='openpyxl')
     gender = file["gender"].map({0: 'Female', 1: 'Male'})
     gen_num = np.array(gender.value_counts())
-    
+    st.text(gen_num)
     
 
