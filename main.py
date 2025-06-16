@@ -14,7 +14,7 @@ if uploaded_file is not None:
     
     st.subheader("Data Preview")
     st.write(file.head())
-    d_info = file.info()
+    d_info = file.isnull().sum()
     st.text(d_info)
 
 
