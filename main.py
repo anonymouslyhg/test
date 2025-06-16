@@ -11,6 +11,6 @@ if uploaded_file is not None:
     
     # Read Excel using openpyxl engine
     file = pd.read_excel(uploaded_file, sheet_name='1', engine='openpyxl')
-    gender = file["gender"]
+    gender = file["gender"].map({0: 'Female', 1: 'Male'})
     st.text(gender[1])
 
