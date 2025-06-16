@@ -15,7 +15,7 @@ if uploaded_file is not None:
     file = pd.read_excel(uploaded_file, sheet_name='1', engine='openpyxl')
     gender = file["gender"].map({0: 'Female', 1: 'Male'})
     gen_counts = gender.value_counts()
-    gen_num = gen_counts.values
+    gen_num = np.array(gen_counts.values)
     labels = gen_counts.index
     plt.pie(gen_num, labels=labels, autopct='%1.1f%%')
     st.pyplot(fig)
