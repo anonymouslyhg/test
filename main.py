@@ -13,6 +13,4 @@ if uploaded_file is not None:
     file = pd.read_excel(uploaded_file, sheet_name='1', engine='openpyxl')
     gender = file["gender"].map({0: 'Female', 1: 'Male'})
     st.text(gender)
-    for 'Male' in gender:
-        st.write('male')
 
