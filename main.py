@@ -9,7 +9,7 @@ st.set_page_config(page_title="Seaborn Graphs", layout="wide")
 st.title("Seaborn Demo")
 
 fig = plt.figure(figsize=(2, 1))
-sns.lineplot(x="total_bill", y="tips", data=df)
+sns.lineplot(x="total_bill", y="tip", data=df)
 st.pyplot(fig)
 
 st.header("Hello")
