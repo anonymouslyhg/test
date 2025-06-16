@@ -10,7 +10,7 @@ if uploaded_file is not None:
     uploaded_file.seek(0)
     
     # Read Excel using openpyxl engine
-    file = pd.read_excel(uploaded_file, sheet_name='Sheet1', engine='openpyxl')
+    file = pd.read_excel(uploaded_file, sheet_name='1', engine='openpyxl')
     
     st.subheader("Data Preview")
     st.write(file.head())
