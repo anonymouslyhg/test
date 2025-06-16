@@ -35,10 +35,10 @@ for i, v in enumerate(values):
     axs[0, 1].text(i, v + 1, str(v), ha='center')
 
 # 3️⃣ Histogram
-axs[1, 0].hist(data, bins=20, color='orange', edgecolor='black')
-axs[1, 0].set_title("Histogram")
-axs[1, 0].set_xlabel("Value")
-axs[1, 0].set_ylabel("Frequency")
+axs[1, 1].hist(data, bins=20, color='orange', edgecolor='black')
+axs[1, 1].set_title("Histogram")
+axs[1, 1].set_xlabel("Value")
+axs[1, 1].set_ylabel("Frequency")
 
 # 4️⃣ Pie Chart
 axs[1, 0].pie(values, labels=categories, autopct='%1.1f%%', startangle=90, shadow=True)
