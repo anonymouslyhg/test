@@ -2,7 +2,7 @@ import pandas as pd
 import streamlit as st
 
 # Load Excel file
-file = pd.read_excel("D:/Python/patient information.xlsx", sheet_name='Sheet1')
+file = pd.read_excel("patient information.xlsx", sheet_name='Sheet1')
 
 # Show header
 st.subheader("Patient Data Preview")
