@@ -8,8 +8,8 @@ df = sns.load_dataset("tips")
 st.set_page_config(page_title="Seaborn Graphs", layout="wide")
 st.title("Seaborn Demo")
 
-fig = plt.figure(figsize=(7, 3))
-sns.lineplot(x="total_bill", y="tip", data=df)
+fig, ax = plt.subplots(figsize=(7, 3))
+sns.lineplot(x="total_bill", y="tip", data=df, ax=ax)
 st.pyplot(fig)
 
 st.header("Hello")
