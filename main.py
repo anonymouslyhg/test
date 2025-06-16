@@ -13,4 +13,5 @@ if uploaded_file is not None:
     file = pd.read_excel(uploaded_file, sheet_name='1', engine='openpyxl')
     gender = file["gender"]
     st.text(gender)
+    st.write("nice")
 
