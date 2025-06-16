@@ -18,4 +18,5 @@ if uploaded_file is not None:
     labels = ["Males", "Females"]
     plt.pie(gen_num, labels=labels)
     plt.show()
+    st.pyplot(fig)
 
