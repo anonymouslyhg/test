@@ -11,7 +11,6 @@ if uploaded_file is not None:
     
     # Read Excel using openpyxl engine
     file = pd.read_excel(uploaded_file, sheet_name='1', engine='openpyxl')
-    date_errors = pd.to_datetime(file['Followbegintime'], errors='coerce')
-    st.text(date_errors.isna())
-
+    gender = file["gender"]
+    st.text(gender)
 
