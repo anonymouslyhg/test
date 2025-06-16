@@ -41,8 +41,8 @@ axs[1, 0].set_xlabel("Value")
 axs[1, 0].set_ylabel("Frequency")
 
 # 4️⃣ Pie Chart
-axs[1, 1].pie(values, labels=categories, autopct='%1.1f%%', startangle=90, shadow=True)
-axs[1, 1].set_title("Pie Chart")
+axs[1, 0].pie(values, labels=categories, autopct='%1.1f%%', startangle=90, shadow=True)
+axs[1, 0].set_title("Pie Chart")
 
 # Adjust layout
 plt.tight_layout()
