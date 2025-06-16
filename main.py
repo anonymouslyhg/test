@@ -13,4 +13,5 @@ if uploaded_file is not None:
     file = pd.read_excel(uploaded_file, sheet_name='1', engine='openpyxl')
     gender = file["gender"].map({0: 'Female', 1: 'Male'})
     st.text(gender.value_counts())
+    st.area_chart(gender)
 
