@@ -14,3 +14,7 @@ if uploaded_file is not None:
     
     st.subheader("Data Preview")
     st.write(file.head())
+    d_info = file.info()
+    st.text(str(d_info))
+
+
