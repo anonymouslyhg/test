@@ -1,22 +1,48 @@
+import seaborn as sns
+import matplotlib.pyplot as plt
 import pandas as pd
 import streamlit as st
-import matplotlib.pyplot as plt
-import numpy as np
 
-st.title("Upload Excel File")
+df = sns.load_dataset('iris')
 
-uploaded_file = st.file_uploader("Choose an Excel file", type=["xlsx"])
+palette = {
+    'setosa': '#1f77b4',
+    'versicolor': '#ff7f0e',
+    'virginica': '#2ca02c'
+}
 
-if uploaded_file is not None:
-    # Rewind the file to start just to be safe
-    uploaded_file.seek(0)
-    fig = plt.figure(figsize=(7,3))
-    # Read Excel using openpyxl engine
-    file = pd.read_excel(uploaded_file, sheet_name='1', engine='openpyxl')
-    gender = file["gender"].map({0: 'Female', 1: 'Male'})
-    gen_counts = gender.value_counts()
-    gen_num = np.array(gen_counts.values)
-    labels = gen_counts.index
-    plt.pie(gen_num, labels=labels, autopct='%1.1f%%')
-    st.pyplot(fig)
+fig, ax = plt.subplots()
+sns.scatterplot(data=df, x='sepal_length', y='sepal_width', hue='species', palette=palette, ax=ax)
+st.pyplot(fig)
+import plotly.express as px
+import streamlit as st
 
+df = px.data.iris()
+
+color_map = {
+    'setosa': '#1f77b4',
+    'versicolor': '#ff7f0e',
+    'virginica': '#2ca02c'
+}
+
+fig = px.scatter(df, x='sepal_width', y='sepal_length', color='species',
+                 color_discrete_map=color_map)
+st.plotly_chart(fig)
+import altair as alt
+import pandas as pd
+import streamlit as st
+
+df = pd.DataFrame({
+    'company': ['A', 'B', 'C', 'A', 'B', 'C'],
+    'value': [10, 15, 8, 20, 14, 12]
+})
+
+color_scale = alt.Scale(domain=['A', 'B', 'C'], range=['#1f77b4', '#ff7f0e', '#2ca02c'])
+
+chart = alt.Chart(df).mark_bar().encode(
+    x='company',
+    y='value',
+    color=alt.Color('company', scale=color_scale)
+)
+
+st.altair_chart(chart)
